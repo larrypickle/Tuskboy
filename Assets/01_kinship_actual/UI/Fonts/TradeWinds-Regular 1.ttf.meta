@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d7272cc7bf120b448bd424a9a56bcc67
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Trade Winds
+  fontNames:
+  - Trade Winds
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b84873a8814645a4f975a990870478c9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
