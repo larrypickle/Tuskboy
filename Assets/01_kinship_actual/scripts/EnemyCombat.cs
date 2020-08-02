@@ -7,6 +7,7 @@ public class EnemyCombat : MonoBehaviour
     public GameObject EmpathySphere;
     public GameObject HateSphere;
     public Transform EnemyPosition;
+    public Transform EmpathyPosition;
     public bool canFire;
 
 
@@ -34,17 +35,17 @@ public class EnemyCombat : MonoBehaviour
     void Update()
     {
 
-        if (canFire == true && enemyCurrentHealth != enemyMaxHealth)
+        if (canFire == true)
         {
             //choosing random ability 
             int randomNumber = Random.Range(1, 6);
             //Debug.Log("randomNumber: " + randomNumber);
             Move(randomNumber);
 
-            if (randomNumber < 4)
+            if (randomNumber < 4 && enemyCurrentHealth < enemyMaxHealth)
             {
                 ShootHateSphere();
-                EnemyTakeDamage(1);
+                //EnemyTakeDamage(1);
             }
 
             else if (randomNumber >= 4)
@@ -66,12 +67,20 @@ public class EnemyCombat : MonoBehaviour
 
     }
 
+    IEnumerator QuickFire()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canFire = true;
+
+    }
+
     public void EnemyTakeDamage(int damage)
     {
        
         enemyCurrentHealth -= damage;
         healthBar.SetHealth(enemyCurrentHealth);
-        
+        Debug.Log("Enemy Health: " + enemyCurrentHealth);
+
         
     }
 
@@ -90,11 +99,11 @@ public class EnemyCombat : MonoBehaviour
 
     public void ShootEmpathySphere()
     {
-        ObjectPooler.Instance.SpawnFromPool("EnemyEmpathySphere", EnemyPosition.position, EnemyPosition.rotation);
+        ObjectPooler.Instance.SpawnFromPool("EnemyEmpathySphere", EmpathyPosition.position, EmpathyPosition.rotation);
 
         canFire = false;
 
-        StartCoroutine(RandomFire());
+        StartCoroutine(QuickFire());
     }
 
     public void Move(int direction)
