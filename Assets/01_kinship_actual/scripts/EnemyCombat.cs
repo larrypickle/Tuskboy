@@ -39,21 +39,29 @@ public class EnemyCombat : MonoBehaviour
         {
             //choosing random ability 
             int randomNumber = Random.Range(1, 6);
+            int empNumber = 5;
             //Debug.Log("randomNumber: " + randomNumber);
             Move(randomNumber);
 
-            if (randomNumber < 4 && enemyCurrentHealth < enemyMaxHealth)
+            if(enemyCurrentHealth >= enemyMaxHealth)
+            {
+                empNumber = 3;
+            }
+            
+            if (randomNumber < empNumber)
             {
                 ShootHateSphere();
                 //EnemyTakeDamage(1);
             }
 
-            else if (randomNumber >= 4)
+            else if (randomNumber >= empNumber)
             {
                 //Debug.Log("empathy sphere");
                 ShootEmpathySphere();
 
             }
+            
+           
         }
 
 
@@ -69,7 +77,7 @@ public class EnemyCombat : MonoBehaviour
 
     IEnumerator QuickFire()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         canFire = true;
 
     }
@@ -103,7 +111,7 @@ public class EnemyCombat : MonoBehaviour
 
         canFire = false;
 
-        StartCoroutine(QuickFire());
+        StartCoroutine(RandomFire());
     }
 
     public void Move(int direction)
