@@ -7,7 +7,6 @@ public class EnemyCombat : MonoBehaviour
     public GameObject EmpathySphere;
     public GameObject HateSphere;
     public Transform EnemyPosition;
-    public Transform EmpathyPosition;
     public bool canFire;
 
 
@@ -67,13 +66,6 @@ public class EnemyCombat : MonoBehaviour
 
     }
 
-    IEnumerator QuickFire()
-    {
-        yield return new WaitForSeconds(0.5f);
-        canFire = true;
-
-    }
-
     public void EnemyTakeDamage(int damage)
     {
        
@@ -98,11 +90,11 @@ public class EnemyCombat : MonoBehaviour
 
     public void ShootEmpathySphere()
     {
-        ObjectPooler.Instance.SpawnFromPool("EnemyEmpathySphere", EmpathyPosition.position, EmpathyPosition.rotation);
+        ObjectPooler.Instance.SpawnFromPool("EnemyEmpathySphere", EnemyPosition.position, EnemyPosition.rotation);
 
         canFire = false;
 
-        StartCoroutine(QuickFire());
+        StartCoroutine(RandomFire());
     }
 
     public void Move(int direction)
