@@ -17,13 +17,18 @@ public class Grid_Movement : MonoBehaviour
     Vector3 targetPosition;
     Vector3 startPosition;
     bool moving;
+    public bool CanMove = true;
+    public float MoveDelayTime = 0.5f;
 
     //for collision
     //public LayerMask collision;
 
 
     // Start is called before the first frame update
-
+    void Start()
+    {
+        CanMove = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +39,7 @@ public class Grid_Movement : MonoBehaviour
             {
                 transform.position = targetPosition;
                 moving = false;
+                
                 return;
             }
 
@@ -46,43 +52,51 @@ public class Grid_Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (IsTileEmpty(Vector3.forward))
+            if (IsTileEmpty(Vector3.forward) && CanMove == true)
             {
                 targetPosition = transform.position + (Vector3.forward * 3);
                 startPosition = transform.position;
                 moving = true;
+                //StartCoroutine(MoveDelay());
+
             }
 
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            if (IsTileEmpty(Vector3.back))
+            if (IsTileEmpty(Vector3.back) && CanMove == true)
             {
                 targetPosition = transform.position + (Vector3.back * 3);
                 startPosition = transform.position;
                 moving = true;
+                //StartCoroutine(MoveDelay());
+
             }
 
 
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            if (IsTileEmpty(Vector3.left))
+            if (IsTileEmpty(Vector3.left) && CanMove == true)
             {
                 targetPosition = transform.position + (Vector3.left * 3);
                 startPosition = transform.position;
                 moving = true;
+                //StartCoroutine(MoveDelay());
+
             }
 
 
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            if (IsTileEmpty(Vector3.right))
+            if (IsTileEmpty(Vector3.right) && CanMove == true)
             {
                 targetPosition = transform.position + (Vector3.right * 3);
                 startPosition = transform.position;
                 moving = true;
+                //StartCoroutine(MoveDelay());
+
             }
 
 
@@ -109,5 +123,14 @@ public class Grid_Movement : MonoBehaviour
         }
 
         return Physics.Raycast(r, rayLength) == false; //return true if it hits nothing
+    }
+
+    IEnumerator MoveDelay()
+    {
+        CanMove = false;
+        yield return new WaitForSeconds(MoveDelayTime);
+        CanMove = true;
+        
+
     }
 }

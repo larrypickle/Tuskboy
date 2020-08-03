@@ -10,13 +10,14 @@ public class Player_Combat : MonoBehaviour
     private int playerMinHealth = 0;
     public float ShootSpeed = 1.5f;
     
-    bool canFire = true;
+    public bool canFire = true;
     public Transform PlayerPosition;
 
     public HealthBarScript healthBar; //reference to the public class health bar script
     // Start is called before the first frame update
     void Start()
     {
+        canFire = false;
         playerCurrentHealth = playerStartingHealth;
         healthBar.SetMaxHealth(playerMaxHealth);//once ur health reaches 100 and your opponents reaches 100 u win
         healthBar.SetHealth(playerStartingHealth);
