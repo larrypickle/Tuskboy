@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 8f;
     public int damage = 5;
+    public float DespawnTimer = 2f;
 
     //2 ways of handling public classes from other scripts
     //plugging in the public game object and using get component to access the script
@@ -39,5 +40,18 @@ public class Projectile : MonoBehaviour
             EnemyCombat ec = other.GetComponent<EnemyCombat>();
             ec.EnemyTakeDamage(damage);
         }
+
+        else
+        {
+            StartCoroutine(Despawn());
+
+        }
+    }
+
+    IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(DespawnTimer);
+        gameObject.SetActive(false);
+
     }
 }

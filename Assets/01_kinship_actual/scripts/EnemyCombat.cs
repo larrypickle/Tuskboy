@@ -39,13 +39,13 @@ public class EnemyCombat : MonoBehaviour
         {
             //choosing random ability 
             int randomNumber = Random.Range(1, 6);
-            int empNumber = 5;
+            int empNumber = 4;
             //Debug.Log("randomNumber: " + randomNumber);
             Move(randomNumber);
 
             if(enemyCurrentHealth >= enemyMaxHealth)
             {
-                empNumber = 3;
+                empNumber = 2;
             }
             
             if (randomNumber < empNumber)
