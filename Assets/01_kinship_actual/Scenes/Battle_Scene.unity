@@ -3727,6 +3727,19 @@ MonoBehaviour:
   damage: 2
   DespawnTimer: 2
   ObjectFX: Damage_FX
+--- !u!65 &1018561620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018561618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6802158, y: 0.76683944, z: 0.68698883}
+  m_Center: {x: 0.008109357, y: 0.3488584, z: 0.0072711636}
 --- !u!4 &1018561624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7251530765882413284, guid: 1232722b5f0f02d4c955557d2ddd397a,
@@ -6481,6 +6494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7313790734289445651, guid: 1232722b5f0f02d4c955557d2ddd397a, type: 3}
+    - {fileID: 7251530765882413281, guid: 1232722b5f0f02d4c955557d2ddd397a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1232722b5f0f02d4c955557d2ddd397a, type: 3}
 --- !u!1 &1936089782
 GameObject:
@@ -7342,7 +7356,7 @@ PrefabInstance:
         type: 3}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 628775194}
     - target: {fileID: 6148687063819513203, guid: 70555e35db2df8b4ba58943309730784,
         type: 3}
       propertyPath: MoveDelayTime
