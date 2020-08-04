@@ -8,9 +8,10 @@ public class Projectile : MonoBehaviour
     public int damage = 5;
     public float DespawnTimer = 2f;
 
-    public string ObjectFX;
-    public bool Stationary;
-    public bool EnemyFired;
+    
+    public string ObjectFX; //name of the fx that will be spawned on collision
+    public bool Stationary; //whether speed = 0
+    public bool EnemyFired; //to ensure enemies dont hit themselves
 
     //2 ways of handling public classes from other scripts
     //plugging in the public game object and using get component to access the script
@@ -78,4 +79,6 @@ public class Projectile : MonoBehaviour
         StartCoroutine(FXDespawn());
 
     }
+
+    
 }

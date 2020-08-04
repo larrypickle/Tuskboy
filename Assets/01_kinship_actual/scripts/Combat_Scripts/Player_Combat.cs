@@ -21,8 +21,8 @@ public class Player_Combat : MonoBehaviour
     // Start is called before the first frame update
     
     //variable to handle cards drawn
-    public string CardName;
-    bool Anger = false; //card attribute
+    //public string CardName; //we will parse the projectile.objectname here
+    bool Anger = false; //card attribute, will be changed to projectile.type later
     bool canFire = false;
 
 
@@ -68,7 +68,7 @@ public class Player_Combat : MonoBehaviour
     {
         CardName = "PlayerEmpathySphere";
         //later this will be CardName = Deck[0] or something
-        if (!Anger)
+        if (!Anger)//projectile.type == type.love
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
