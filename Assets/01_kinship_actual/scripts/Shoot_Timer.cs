@@ -26,7 +26,7 @@ public class Shoot_Timer : MonoBehaviour
     {
         bar.transform.localScale = new Vector3(0, 1, 1);
         AnimateBar();
-        pc.PlayerEmpathySphere();
+        //pc.PlayerEmpathySphere();
         Debug.Log("Works! ");
         
         

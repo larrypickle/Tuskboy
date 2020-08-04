@@ -41,9 +41,9 @@ public class EnemyCombat : MonoBehaviour
             int randomNumber = Random.Range(1, 8);
             int empNumber = 6;
             //Debug.Log("randomNumber: " + randomNumber);
-            
+            Move(randomNumber);
 
-            if(enemyCurrentHealth >= enemyMaxHealth)
+            if (enemyCurrentHealth >= enemyMaxHealth)
             {
                 bool Loving = true;
                 empNumber = 2;
