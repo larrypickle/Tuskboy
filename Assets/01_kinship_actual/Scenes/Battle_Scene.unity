@@ -913,6 +913,11 @@ PrefabInstance:
       propertyPath: damage
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5031307690223976992, guid: 0e2319ab14009c94190c9215296e92be,
+        type: 3}
+      propertyPath: ObjectFX
+      value: Health_FX
+      objectReference: {fileID: 0}
     - target: {fileID: 5031307690223976993, guid: 0e2319ab14009c94190c9215296e92be,
         type: 3}
       propertyPath: m_Radius
@@ -1451,6 +1456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   damage: -1
+  DespawnTimer: 2
+  ObjectFX: Health_FX
 --- !u!1 &425040372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1644,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  damage: 3
+  damage: 2
+  DespawnTimer: 2
+  ObjectFX: Damage_FX
 --- !u!1 &513412691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902415617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 413185651835298060}
@@ -3223,6 +3232,12 @@ MonoBehaviour:
     size: 5
   - tag: PlayerEmpathySphere
     prefab: {fileID: 407283499}
+    size: 5
+  - tag: Health_FX
+    prefab: {fileID: 152564, guid: 0e4a7fa9fd28f154b91c98ee6fe8ebea, type: 3}
+    size: 5
+  - tag: Damage_FX
+    prefab: {fileID: 169216, guid: 737959db973360b43bdeb1a4874f1af8, type: 3}
     size: 5
 --- !u!4 &945971909
 Transform:
@@ -6966,7 +6981,17 @@ PrefabInstance:
     - target: {fileID: 6148687063819513202, guid: 70555e35db2df8b4ba58943309730784,
         type: 3}
       propertyPath: ShootSpeed
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148687063819513203, guid: 70555e35db2df8b4ba58943309730784,
+        type: 3}
+      propertyPath: MoveDelayTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148687063819513203, guid: 70555e35db2df8b4ba58943309730784,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6148687063819513205, guid: 70555e35db2df8b4ba58943309730784,
         type: 3}
