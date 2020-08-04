@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public float DespawnTimer = 2f;
 
     public string ObjectFX;
+    public bool Stationary;
+    public bool EnemyFired;
 
     //2 ways of handling public classes from other scripts
     //plugging in the public game object and using get component to access the script
@@ -17,6 +19,13 @@ public class Projectile : MonoBehaviour
     //OR accessing the script and then accessing the classes inside that script
     //public Player_Combat PlayerCombat;
 
+    void Start()
+    {
+        if (Stationary)
+        {
+            StartCoroutine(Despawn());
+        }
+    }
     
 
     void Update()
@@ -37,7 +46,7 @@ public class Projectile : MonoBehaviour
             SpawnEffect();
 
         }
-        else if (other.gameObject.CompareTag("Enemy"))
+        else if (other.gameObject.CompareTag("Enemy") && !EnemyFired)
         {
             Debug.Log("enemy hit");
             gameObject.SetActive(false);
@@ -47,11 +56,6 @@ public class Projectile : MonoBehaviour
 
         }
 
-        else
-        {
-            StartCoroutine(Despawn());
-
-        }
     }
 
     IEnumerator Despawn()

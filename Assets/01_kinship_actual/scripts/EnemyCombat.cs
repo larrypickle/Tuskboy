@@ -98,7 +98,7 @@ public class EnemyCombat : MonoBehaviour
         Debug.Log("Enemy Health: " + enemyCurrentHealth);
         int randomNumber = Random.Range(1, 6);
         Move(randomNumber);
-
+        
 
     }
 

@@ -28,7 +28,7 @@ public class Player_Combat : MonoBehaviour
 
     //timer variables
     public GameObject bar;
-    public int time = 2;
+    public float time = 2;
 
 
     void Start()
