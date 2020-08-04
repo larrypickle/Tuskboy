@@ -15,6 +15,7 @@ public class Player_Combat : MonoBehaviour
 
     public HealthBarScript healthBar; //reference to the public class health bar script
     // Start is called before the first frame update
+    public string CardName;
 
         //timer variables
     public Shoot_Timer timer;
@@ -64,7 +65,9 @@ public class Player_Combat : MonoBehaviour
 
     public void PlayerEmpathySphere()
     {
-        ObjectPooler.Instance.SpawnFromPool("PlayerEmpathySphere", PlayerPosition.position, PlayerPosition.rotation);
+        CardName = "PlayerEmpathySphere";
+        //later this will be CardName = Deck[0] or something
+        ObjectPooler.Instance.SpawnFromPool(CardName, PlayerPosition.position, PlayerPosition.rotation);
 
         canFire = false;
 

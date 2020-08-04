@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-    public GameObject EmpathySphere;
-    public GameObject HateSphere;
+    public string EnemyProjectile;
     public Transform EnemyPosition;
     public Transform EmpathyPosition;
     public bool canFire;
@@ -20,6 +19,7 @@ public class EnemyCombat : MonoBehaviour
     public float shootSpeed = 2.5f; //how many seconds between shots
 
     public HealthBarScript healthBar;
+    public bool Loving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,23 +38,31 @@ public class EnemyCombat : MonoBehaviour
         if (canFire == true)
         {
             //choosing random ability 
-            int randomNumber = Random.Range(1, 6);
-            int empNumber = 4;
+            int randomNumber = Random.Range(1, 8);
+            int empNumber = 6;
             //Debug.Log("randomNumber: " + randomNumber);
-            Move(randomNumber);
+            
 
             if(enemyCurrentHealth >= enemyMaxHealth)
             {
+                bool Loving = true;
                 empNumber = 2;
             }
             
             if (randomNumber < empNumber)
             {
+                EnemyProjectile = "EnemyHateSphere";
                 ShootHateSphere();
                 //EnemyTakeDamage(1);
             }
 
-            else if (randomNumber >= empNumber)
+            else if(randomNumber == empNumber && !Loving)
+            {
+                EnemyProjectile = "HateSphereCluster";
+                ShootHateSphere();
+            }
+
+            else if (randomNumber > empNumber)
             {
                 //Debug.Log("empathy sphere");
                 ShootEmpathySphere();
@@ -88,8 +96,10 @@ public class EnemyCombat : MonoBehaviour
         enemyCurrentHealth -= damage;
         healthBar.SetHealth(enemyCurrentHealth);
         Debug.Log("Enemy Health: " + enemyCurrentHealth);
+        int randomNumber = Random.Range(1, 6);
+        Move(randomNumber);
 
-        
+
     }
 
     public void ShootHateSphere()
@@ -97,7 +107,7 @@ public class EnemyCombat : MonoBehaviour
         //Instantiate(HateSphere, EnemyPosition.position, EnemyPosition.rotation);
 
         //using singleton allows me to access objectpooler just through objectpooler.instance instead of having to establish the class in this script first
-        ObjectPooler.Instance.SpawnFromPool("EnemyHateSphere", EnemyPosition.position, EnemyPosition.rotation);
+        ObjectPooler.Instance.SpawnFromPool(EnemyProjectile, EnemyPosition.position, EnemyPosition.rotation);
 
         canFire = false;
 
