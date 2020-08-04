@@ -15,8 +15,15 @@ public class Player_Combat : MonoBehaviour
 
     public HealthBarScript healthBar; //reference to the public class health bar script
     // Start is called before the first frame update
+
+        //timer variables
+    public Shoot_Timer timer;
+    
     void Start()
     {
+        //timer set
+        
+
         canFire = false;
         playerCurrentHealth = playerStartingHealth;
         healthBar.SetMaxHealth(playerMaxHealth);//once ur health reaches 100 and your opponents reaches 100 u win
@@ -29,12 +36,19 @@ public class Player_Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (canFire == true)
         {
             //choosing random ability 
             PlayerEmpathySphere();
 
             //Debug.Log("empathy sphere");
+
+        }
+
+        else
+        {
 
         }
     }
@@ -48,7 +62,7 @@ public class Player_Combat : MonoBehaviour
         
     }
 
-    void PlayerEmpathySphere()
+    public void PlayerEmpathySphere()
     {
         ObjectPooler.Instance.SpawnFromPool("PlayerEmpathySphere", PlayerPosition.position, PlayerPosition.rotation);
 
@@ -60,8 +74,14 @@ public class Player_Combat : MonoBehaviour
     IEnumerator SetFire()
     {
         yield return new WaitForSeconds(ShootSpeed);
-        canFire = true;
+        //canFire = true;
+        //timer.FillTimer();
 
+    }
+
+    public void canFireOn()
+    {
+        canFire = true;
     }
 
 
