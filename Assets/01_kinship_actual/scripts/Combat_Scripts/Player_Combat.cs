@@ -11,7 +11,6 @@ public class Player_Combat : MonoBehaviour
     public int playerCurrentHealth;
     public int playerStartingHealth = 10;
     private int playerMinHealth = 0;
-    public float ShootSpeed = 1.5f;
     public string CardName;
     
     
@@ -31,23 +30,26 @@ public class Player_Combat : MonoBehaviour
     //timer variables
     public GameObject bar;
     public float time = 2;
-    private bool firstCombat;
+    public bool firstCombat;
 
 
     void Start()
     {
         if (firstCombat)
         {
-            newDeck();
+            deckManager.newDeck(); //instantiate basic starter deck
         }
-        //timer set
+
+        deckManager.copyDeck(); //copy the deck, we will manipulate this
+        deckManager.Draw(); //draw a card from the copied deck
+        
+        //starting bar timer
         AnimateBar();
 
-        
+        //instantiating health bar
         playerCurrentHealth = playerStartingHealth;
         healthBar.SetMaxHealth(playerMaxHealth);//once ur health reaches 100 and your opponents reaches 100 u win
         healthBar.SetHealth(playerStartingHealth);
-
 
     }
 
@@ -73,9 +75,9 @@ public class Player_Combat : MonoBehaviour
 
     public void ShootCard()
     {
-        CardName = "PlayerEmpathySphere";
+        CardName = deckManager.currentCard.name;
         //later this will be CardName = Deck[0] or something
-        if (!Anger)//projectile.type == type.love
+        if (!deckManager.currentCard.Uncontrollable)//projectile.type == type.love
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -84,6 +86,7 @@ public class Player_Combat : MonoBehaviour
                 canFire = false;
 
                 bar.transform.localScale = new Vector3(0, 1, 1); //resets the timer bar
+                deckManager.Draw();
                 AnimateBar();
             }
 
@@ -95,19 +98,11 @@ public class Player_Combat : MonoBehaviour
             canFire = false;
 
             bar.transform.localScale = new Vector3(0, 1, 1); //resets the timer bar
+            deckManager.Draw();
             AnimateBar();
         }
 
         
-    }
-
-
-    IEnumerator SetFire()
-    {
-        yield return new WaitForSeconds(ShootSpeed);
-        //canFire = true;
-        //timer.FillTimer();
-
     }
 
     public void AnimateBar()

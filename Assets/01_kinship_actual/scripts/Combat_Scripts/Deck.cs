@@ -45,20 +45,39 @@ public class Deck : MonoBehaviour
 
     public Card Draw()
     {
+        if(deckInstance.Count == 0) //if there r no cards in deck, shuffle back in discard
+        {
+            foreach (Card card in discard)
+            {
+                Debug.Log("cards: " + card.name + " " + card.Uncontrollable + " " + card.spriteNumber);
+                deckInstance.Add(new Card(card.name, card.Uncontrollable, card.spriteNumber));//copy of deck in deckinstance
+            }
+
+            Shuffle();
+        }
+
         currentCard = deckInstance[0];
         discard.Add(deckInstance[0]);
         deckInstance.Remove(deckInstance[0]);
         //remove card from list deck into discard
         //we set currentCard = card drawn
-        nextPiece.GetComponent<SpriteRenderer>().sprite = spriteArray[currentCard.spriteNumber]; //why doesnt this work?
-
+        nextPiece.GetComponent<SpriteRenderer>().sprite = spriteArray[currentCard.spriteNumber]; //changes sprite of the next attack
+        Debug.Log("current card:" + currentCard.name + " " + currentCard.spriteNumber);
         return currentCard;
          
     }
 
     public void Shuffle()
     {
-
+        int DeckSize = deckInstance.Count;
+        //Knuth Shuffle algorithm
+        for(int i = 0; i < DeckSize; i++)
+        {
+            int r = Random.Range(i, DeckSize);  //pick a random index from 0 to deckSize
+            Card temp = deckInstance[i]; //set a temp variable
+            deckInstance[i] = deckInstance[r];
+            deckInstance[r] = temp;
+        }
     }
 
     public void AddCard(string card, bool uncontrollable, int spriteNumber)
@@ -104,6 +123,10 @@ public class Deck : MonoBehaviour
             deckInstance.Add(new Card(card.name, card.Uncontrollable, card.spriteNumber));//copy of deck in deckinstance
         }
 
+        foreach(Card card in deckInstance)
+        {
+            Debug.Log("cards in copy of deck: " + card.name);
+        }
         Shuffle();
     }
 

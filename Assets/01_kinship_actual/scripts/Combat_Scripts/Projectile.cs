@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
     void SpawnEffect()
     {
         ObjectPooler.Instance.SpawnFromPool(ObjectFX, this.transform.position, this.transform.rotation);
-        StartCoroutine(FXDespawn());
+        //StartCoroutine(FXDespawn());
 
     }
 

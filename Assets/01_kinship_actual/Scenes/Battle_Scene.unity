@@ -7969,6 +7969,11 @@ PrefabInstance:
       propertyPath: deckManager
       value: 
       objectReference: {fileID: 628775194}
+    - target: {fileID: 6148687063819513202, guid: 70555e35db2df8b4ba58943309730784,
+        type: 3}
+      propertyPath: firstCombat
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6148687063819513203, guid: 70555e35db2df8b4ba58943309730784,
         type: 3}
       propertyPath: MoveDelayTime
