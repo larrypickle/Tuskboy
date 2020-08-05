@@ -1237,7 +1237,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &246951336
 RectTransform:
@@ -2343,6 +2343,7 @@ MonoBehaviour:
   ObjectFX: Health_FX
   Stationary: 0
   EnemyFired: 0
+  Uncontrollable: 0
 --- !u!1 &425040372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2461,7 @@ MonoBehaviour:
   ObjectFX: Damage_FX
   Stationary: 0
   EnemyFired: 1
+  Uncontrollable: 0
 --- !u!1 &495677042
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,6 +4532,7 @@ MonoBehaviour:
   ObjectFX: Damage_FX
   Stationary: 0
   EnemyFired: 0
+  Uncontrollable: 0
 --- !u!1 &994593360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4741,6 +4744,7 @@ MonoBehaviour:
   ObjectFX: Damage_FX
   Stationary: 0
   EnemyFired: 1
+  Uncontrollable: 0
 --- !u!65 &1018561620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4784,6 +4788,7 @@ MonoBehaviour:
   ObjectFX: Damage_FX
   Stationary: 0
   EnemyFired: 0
+  Uncontrollable: 0
 --- !u!1 &1037925376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,6 +6934,7 @@ MonoBehaviour:
   ObjectFX: Damage_FX
   Stationary: 0
   EnemyFired: 0
+  Uncontrollable: 1
 --- !u!1 &1598420025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8633,6 +8639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968999078}
+  - component: {fileID: 1968999079}
   m_Layer: 0
   m_Name: 3d_Grid
   m_TagString: Untagged
@@ -8692,6 +8699,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968999079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968999077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b7b1980839e6446af6980934537ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCombat: {fileID: 636912073}
+  playerCombat: {fileID: 1133103709}
+  Tuskboy: {fileID: 628775190}
+  Gorffrey: {fileID: 413185651835298059}
 --- !u!1 &2011916108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8963,6 +8986,140 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1146876884693724912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &413185651835298063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413185651835298059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 16384
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: Gorffrey_Hit
+  conversationConversant: {fileID: 413185651835298060}
+  conversationActor: {fileID: 8910440936127219910}
+  startConversationEntryID: -1
+  exclusive: 0
+  skipIfNoValidEntries: 1
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 1
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: f7a667e875e63294992b67ca0f1b6f7b, type: 2}
+--- !u!114 &413185651835298064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413185651835298059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 16384
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: Gorffrey_End_Combat
+  conversationConversant: {fileID: 413185651835298060}
+  conversationActor: {fileID: 8910440936127219910}
+  startConversationEntryID: -1
+  exclusive: 0
+  skipIfNoValidEntries: 1
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 1
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: f7a667e875e63294992b67ca0f1b6f7b, type: 2}
 --- !u!1001 &1146876884693724912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9030,6 +9187,11 @@ PrefabInstance:
       propertyPath: enemyMaxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1146876885287841593, guid: bf5512f2b02e12649822987365eb6d66,
+        type: 3}
+      propertyPath: Tuskboy
+      value: 
+      objectReference: {fileID: 628775190}
     - target: {fileID: 4326324830438571496, guid: bf5512f2b02e12649822987365eb6d66,
         type: 3}
       propertyPath: m_LocalPosition.x

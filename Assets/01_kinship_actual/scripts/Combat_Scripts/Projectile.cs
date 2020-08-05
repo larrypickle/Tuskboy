@@ -8,11 +8,10 @@ public class Projectile : MonoBehaviour
     public int damage = 5;
     public float DespawnTimer = 2f;
 
-    
-
     public string ObjectFX; //name of the fx that will be spawned on collision
     public bool Stationary; //whether speed = 0
     public bool EnemyFired; //to ensure enemies dont hit themselves
+    public bool Uncontrollable;
 
     //2 ways of handling public classes from other scripts
     //plugging in the public game object and using get component to access the script
@@ -26,6 +25,11 @@ public class Projectile : MonoBehaviour
         if (Stationary)
         {
             StartCoroutine(Despawn());
+        }
+
+        else
+        {
+            StartCoroutine(LongerDespawn());
         }
     }
     
@@ -48,7 +52,7 @@ public class Projectile : MonoBehaviour
             SpawnEffect();
 
         }
-        else if (other.gameObject.CompareTag("Enemy") && !EnemyFired)
+        else if (other.gameObject.CompareTag("Enemy") && !EnemyFired && Uncontrollable)
         {
             Debug.Log("enemy hit");
             gameObject.SetActive(false);
@@ -56,6 +60,14 @@ public class Projectile : MonoBehaviour
             ec.EnemyTakeDamage(damage);
             SpawnEffect();
 
+        }
+
+        else if(other.gameObject.CompareTag("Enemy") && !EnemyFired && !Uncontrollable)
+        {
+            gameObject.SetActive(false);
+            EnemyCombat ec = other.GetComponent<EnemyCombat>();
+            ec.EnemyHeal(damage);
+            SpawnEffect();
         }
 
     }
@@ -67,7 +79,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-    IEnumerator FXDespawn()
+    IEnumerator LongerDespawn()
     {
         yield return new WaitForSeconds(5);
         gameObject.SetActive(false);

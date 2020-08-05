@@ -24,7 +24,7 @@ public class Player_Combat : MonoBehaviour
     //variable to handle cards drawn
     //public string CardName; //we will parse the projectile.objectname here
     bool Anger = false; //card attribute, will be changed to projectile.type later
-    bool canFire = false;
+    public bool canFire = false;
 
     public Deck deckManager;
     public TextMeshProUGUI drawPile;

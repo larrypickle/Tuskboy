@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class EnemyCombat : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnemyCombat : MonoBehaviour
     public Transform EmpathyPosition;
     public bool canFire;
 
+    public GameObject Tuskboy; //just for starting dialogue
 
     //maybe have an enemymanager script that handles this stuff later
     //enemy stats
@@ -99,8 +101,20 @@ public class EnemyCombat : MonoBehaviour
         Debug.Log("Enemy Health: " + enemyCurrentHealth);
         int randomNumber = Random.Range(1, 6);
         Move(randomNumber);
-        Loving = false;
+        if (Loving)
+        {
+            DialogueManager.StartConversation("Gorffrey_Hit", Tuskboy.transform, gameObject.transform);
+            Loving = false;
+        }
         
+
+    }
+
+    public void EnemyHeal(int damage)
+    {
+        enemyCurrentHealth -= damage;
+        healthBar.SetHealth(enemyCurrentHealth);
+        Debug.Log("Enemy Health: " + enemyCurrentHealth);
 
     }
 
