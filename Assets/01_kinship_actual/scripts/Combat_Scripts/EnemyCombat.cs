@@ -24,6 +24,8 @@ public class EnemyCombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Loving = true;
+
         enemyCurrentHealth = enemyStartingHealth;
         healthBar.SetMaxHealth(enemyMaxHealth);//once ur health reaches 100 and your opponents reaches 100 u win
         healthBar.SetHealth(enemyStartingHealth);
@@ -39,17 +41,16 @@ public class EnemyCombat : MonoBehaviour
         {
             //choosing random ability 
             int randomNumber = Random.Range(1, 8);
-            int empNumber = 6;
+            int empNumber = 7;
             //Debug.Log("randomNumber: " + randomNumber);
             Move(randomNumber);
 
             if (enemyCurrentHealth >= enemyMaxHealth)
             {
-                bool Loving = true;
-                empNumber = 2;
+                empNumber = 0;
             }
             
-            if (randomNumber < empNumber)
+            if (randomNumber < empNumber && !Loving)
             {
                 EnemyProjectile = "EnemyHateSphere";
                 ShootHateSphere();
@@ -62,7 +63,7 @@ public class EnemyCombat : MonoBehaviour
                 ShootHateSphere();
             }
 
-            else if (randomNumber > empNumber)
+            else if (randomNumber > empNumber || Loving)
             {
                 //Debug.Log("empathy sphere");
                 ShootEmpathySphere();
@@ -98,6 +99,7 @@ public class EnemyCombat : MonoBehaviour
         Debug.Log("Enemy Health: " + enemyCurrentHealth);
         int randomNumber = Random.Range(1, 6);
         Move(randomNumber);
+        Loving = false;
         
 
     }
