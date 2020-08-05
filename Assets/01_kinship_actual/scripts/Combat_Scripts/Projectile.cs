@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float DespawnTimer = 2f;
 
     
+
     public string ObjectFX; //name of the fx that will be spawned on collision
     public bool Stationary; //whether speed = 0
     public bool EnemyFired; //to ensure enemies dont hit themselves

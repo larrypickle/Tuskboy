@@ -12,6 +12,7 @@ public class Player_Combat : MonoBehaviour
     public int playerStartingHealth = 10;
     private int playerMinHealth = 0;
     public float ShootSpeed = 1.5f;
+    public string CardName;
     
     
     public Transform PlayerPosition;
@@ -25,14 +26,20 @@ public class Player_Combat : MonoBehaviour
     bool Anger = false; //card attribute, will be changed to projectile.type later
     bool canFire = false;
 
+    public Deck deckManager;
 
     //timer variables
     public GameObject bar;
     public float time = 2;
+    private bool firstCombat;
 
 
     void Start()
     {
+        if (firstCombat)
+        {
+            newDeck();
+        }
         //timer set
         AnimateBar();
 
