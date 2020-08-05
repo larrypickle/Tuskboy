@@ -52,7 +52,7 @@ public class Deck : MonoBehaviour
                 Debug.Log("cards: " + card.name + " " + card.Uncontrollable + " " + card.spriteNumber);
                 deckInstance.Add(new Card(card.name, card.Uncontrollable, card.spriteNumber));//copy of deck in deckinstance
             }
-
+            discard.Clear();
             Shuffle();
         }
 

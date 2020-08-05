@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DentedPixel;
+using TMPro;
 
 public class Player_Combat : MonoBehaviour
 {
@@ -26,13 +27,19 @@ public class Player_Combat : MonoBehaviour
     bool canFire = false;
 
     public Deck deckManager;
+    public TextMeshProUGUI drawPile;
+    public TextMeshProUGUI discardPile;
 
     //timer variables
     public GameObject bar;
     public float time = 2;
     public bool firstCombat;
 
-
+    private void Awake()
+    {
+        drawPile = drawPile.GetComponent<TMPro.TextMeshProUGUI>();
+        discardPile = discardPile.GetComponent<TMPro.TextMeshProUGUI>();
+    }
     void Start()
     {
         if (firstCombat)
@@ -40,8 +47,9 @@ public class Player_Combat : MonoBehaviour
             deckManager.newDeck(); //instantiate basic starter deck
         }
 
-        deckManager.copyDeck(); //copy the deck, we will manipulate this
+        deckManager.copyDeck(); //copy the deck to get deckInstance, we will manipulate this in the combat instead of ACTUAL deck
         deckManager.Draw(); //draw a card from the copied deck
+
         
         //starting bar timer
         AnimateBar();
@@ -56,6 +64,10 @@ public class Player_Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //show how many cards are in draw pile and discard pile
+        drawPile.text = deckManager.deckInstance.Count.ToString();
+        discardPile.text = deckManager.discard.Count.ToString();
+
         if (canFire)
         {
             ShootCard();
@@ -110,6 +122,7 @@ public class Player_Combat : MonoBehaviour
         if (!canFire)
         {
             LeanTween.scaleX(bar, 1, time).setOnComplete(FireEnable);
+            //watched this tutorial for the bar timer: https://www.youtube.com/watch?v=z7bR_xYcopM
 
         }
 
