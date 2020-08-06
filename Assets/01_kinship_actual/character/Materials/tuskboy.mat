@@ -116,7 +116,7 @@ Material:
     - _Cutoff: 0.5
     - _Cutout: 0
     - _DetailNormalMapScale: 1
-    - _DirectionalLightIntensity: 0
+    - _DirectionalLightIntensity: -0.1
     - _DoubleSided: 2
     - _DoubleSidedOutline: 1
     - _DstBlend: 0
@@ -184,7 +184,7 @@ Material:
     - _PTexturePower: 1
     - _Parallax: 0.02
     - _PointLightSVD: -0.15
-    - _PointSpotlightIntensity: -2.76
+    - _PointSpotlightIntensity: -3.89
     - _RELG: 1
     - _ReduceShadowPointLight: -0.04
     - _ReduceShadowSpotDirectionalLight: 24.87
