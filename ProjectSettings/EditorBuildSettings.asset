@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_kinship_actual/Scenes/Battle_Scene.unity
     guid: 938bc45178b4f594985f7ccfa59a865e
+  - enabled: 1
+    path: Assets/01_kinship_actual/Scenes/Loading_Scene.unity
+    guid: 46d21bd17c9e65b46bf0eac44f21b6d7
   m_configObjects: {}
