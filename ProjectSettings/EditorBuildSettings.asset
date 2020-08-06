@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_kinship_actual/Scenes/Inside_Big_House.unity
     guid: 40ef5b15b10928b4685d1d2b10a2e9d0
+  - enabled: 1
+    path: Assets/01_kinship_actual/Scenes/Battle_Scene.unity
+    guid: 938bc45178b4f594985f7ccfa59a865e
   m_configObjects: {}
