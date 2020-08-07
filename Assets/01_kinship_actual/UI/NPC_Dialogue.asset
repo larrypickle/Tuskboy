@@ -6923,7 +6923,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: LoadLevel(Environment_Test, Frog_Spawn)
+        value: LoadLevel(Environment_Test)
         type: 0
         typeString: 
       conversationID: 10
