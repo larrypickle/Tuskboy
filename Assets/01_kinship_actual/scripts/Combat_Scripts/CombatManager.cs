@@ -26,7 +26,7 @@ public class CombatManager : MonoBehaviour
         {
             enemyCombat.canFire = false;
             playerCombat.canFire = false;
-            DialogueManager.StartConversation("Gorffrey_End_Combat", Tuskboy.transform, Gorffrey.transform);
+            DialogueManager.StartConversation("Gorffrey/End_Combat", Tuskboy.transform, Gorffrey.transform);
             CombatDone = true;
 
         }
