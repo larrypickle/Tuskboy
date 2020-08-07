@@ -103,7 +103,7 @@ public class EnemyCombat : MonoBehaviour
         Move(randomNumber);
         if (Loving)
         {
-            DialogueManager.StartConversation("Gorffrey_Hit", Tuskboy.transform, gameObject.transform);
+            DialogueManager.StartConversation("Gorffrey/Hit", Tuskboy.transform, gameObject.transform);
             Loving = false;
         }
         

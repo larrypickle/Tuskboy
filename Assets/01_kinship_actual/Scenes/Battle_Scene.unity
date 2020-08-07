@@ -9174,7 +9174,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: Gorffrey_Hit
+  conversation: Gorffrey/Hit
   conversationConversant: {fileID: 413185651835298060}
   conversationActor: {fileID: 8910440936127219910}
   startConversationEntryID: -1
@@ -9241,7 +9241,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: Gorffrey_End_Combat
+  conversation: Gorffrey/End_Combat
   conversationConversant: {fileID: 413185651835298060}
   conversationActor: {fileID: 8910440936127219910}
   startConversationEntryID: -1
