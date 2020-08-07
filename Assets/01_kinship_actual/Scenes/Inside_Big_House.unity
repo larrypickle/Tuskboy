@@ -940,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717477860}
   - component: {fileID: 717477859}
-  - component: {fileID: 717477862}
+  - component: {fileID: 717477861}
   m_Layer: 0
   m_Name: GoOutside
   m_TagString: Untagged
@@ -977,7 +977,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &717477862
+--- !u!114 &717477861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -986,12 +986,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 717477858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7203074dfbd78bc4fa51314c98bf4720, type: 3}
+  m_Script: {fileID: 11500000, guid: 51011e9f331723449a4c74e231feab1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_requiredTag: Player
-  m_destinationSceneName: Environment_Test
-  m_spawnpointNameInDestinationScene: Leaving_Big_House
+  enterText: {fileID: 1371474658}
+  levelToLoad: Environment_Test
 --- !u!1 &718601200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.3429356
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184826516044143032, guid: 5b020bae31388cd46a2c7f327545a7d9,
+        type: 3}
+      propertyPath: m_multiscene
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b020bae31388cd46a2c7f327545a7d9, type: 3}
@@ -4297,12 +4301,12 @@ PrefabInstance:
     - target: {fileID: 8271593910855987772, guid: 0bd31cdb028c03b4d8def2b5ec9c0479,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5.587523
       objectReference: {fileID: 0}
     - target: {fileID: 8271593910855987772, guid: 0bd31cdb028c03b4d8def2b5ec9c0479,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.4347963
       objectReference: {fileID: 0}
     - target: {fileID: 8271593910855987772, guid: 0bd31cdb028c03b4d8def2b5ec9c0479,
         type: 3}
@@ -4312,7 +4316,7 @@ PrefabInstance:
     - target: {fileID: 8271593910855987772, guid: 0bd31cdb028c03b4d8def2b5ec9c0479,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.035397474
       objectReference: {fileID: 0}
     - target: {fileID: 8271593911082832438, guid: 0bd31cdb028c03b4d8def2b5ec9c0479,
         type: 3}
