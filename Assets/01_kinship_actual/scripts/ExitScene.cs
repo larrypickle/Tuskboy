@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using PixelCrushers.DialogueSystem;
 
 public class ExitScene : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class ExitScene : MonoBehaviour
             enterText.SetActive(true);
             if (Input.GetButtonDown("Interact"))
             {
-                SceneManager.LoadScene(levelToLoad);
+                SaveSystem.LoadScene(levelToLoad);
             }
         }
     }
