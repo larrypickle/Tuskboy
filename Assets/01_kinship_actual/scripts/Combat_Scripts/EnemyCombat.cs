@@ -5,13 +5,13 @@ using PixelCrushers.DialogueSystem;
 
 public class EnemyCombat : MonoBehaviour
 {
-    public string EnemyProjectile;
+    private string EnemyProjectile;
     public Transform EnemyPosition;
     public Transform EmpathyPosition;
     public bool canFire;
 
     public GameObject Tuskboy; //just for starting dialogue
-
+    public EnemyMoveset enemyMoveset;
     //maybe have an enemymanager script that handles this stuff later
     //enemy stats
     public int enemyMaxHealth = 20;
@@ -43,7 +43,7 @@ public class EnemyCombat : MonoBehaviour
         {
             //choosing random ability 
             int randomNumber = Random.Range(1, 8);
-            int empNumber = 7;
+            int empNumber = 6;
             //Debug.Log("randomNumber: " + randomNumber);
             Move(randomNumber);
 
@@ -54,20 +54,21 @@ public class EnemyCombat : MonoBehaviour
             
             if (randomNumber < empNumber && !Loving)
             {
-                EnemyProjectile = "EnemyHateSphere";
+                EnemyProjectile = enemyMoveset.cardAttacks[0];
                 ShootHateSphere();
                 //EnemyTakeDamage(1);
             }
 
             else if(randomNumber == empNumber && !Loving)
             {
-                EnemyProjectile = "HateSphereCluster";
+                EnemyProjectile = enemyMoveset.cardAttacks[2];
                 ShootHateSphere();
             }
 
             else if (randomNumber > empNumber || Loving)
             {
                 //Debug.Log("empathy sphere");
+                EnemyProjectile = enemyMoveset.cardAttacks[1];
                 ShootEmpathySphere();
 
             }
@@ -118,22 +119,20 @@ public class EnemyCombat : MonoBehaviour
 
     }
 
-    public void ShootHateSphere()
-    {
-        //Instantiate(HateSphere, EnemyPosition.position, EnemyPosition.rotation);
+    
 
-        //using singleton allows me to access objectpooler just through objectpooler.instance instead of having to establish the class in this script first
-        ObjectPooler.Instance.SpawnFromPool(EnemyProjectile, EnemyPosition.position, EnemyPosition.rotation);
+    public void ShootEmpathySphere()
+    {
+        ObjectPooler.Instance.SpawnFromPool(EnemyProjectile, EmpathyPosition.position, EmpathyPosition.rotation);
 
         canFire = false;
 
         StartCoroutine(RandomFire());
-
     }
 
-    public void ShootEmpathySphere()
+    public void ShootHateSphere()
     {
-        ObjectPooler.Instance.SpawnFromPool("EnemyEmpathySphere", EmpathyPosition.position, EmpathyPosition.rotation);
+        ObjectPooler.Instance.SpawnFromPool(EnemyProjectile, EnemyPosition.position, EnemyPosition.rotation);
 
         canFire = false;
 

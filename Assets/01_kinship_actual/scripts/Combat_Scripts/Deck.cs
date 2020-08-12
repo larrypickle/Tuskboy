@@ -7,6 +7,7 @@ public class Deck : MonoBehaviour
 {
     public GameObject nextPiece; //the object that is getting their sprite changed
     public Sprite[] spriteArray;
+    public Sprite[] cardArray;
 
 
     public class Card
@@ -133,5 +134,11 @@ public class Deck : MonoBehaviour
     public void EndBattle()
     {
         deckInstance.Clear();
+    }
+
+    //showing the deck as ur inventory
+    public void ShowDeck()
+    {
+
     }
 }

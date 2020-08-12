@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3631029640183028280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3631029640183028286}
+  - component: {fileID: 3631029640183028287}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3631029640183028286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631029640183028280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.43459988, y: 4.12374, z: -23.852}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3631029640183028287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631029640183028280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d916dafef6284ac4ab05b9ca2e159b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: EnemyHateSphere
+    prefab: {fileID: 3168375946350926849, guid: 89b9cf5096fee3949896fd32a9eacf4c,
+      type: 3}
+    size: 100
+  - tag: EnemyEmpathySphere
+    prefab: {fileID: 1683298215907069295, guid: a1cb5c022e5124e45814529243dfde01,
+      type: 3}
+    size: 100
+  - tag: PlayerEmpathySphere
+    prefab: {fileID: 743356683344693041, guid: bcfe3b9b11cecb345b8bd597f8fd0031, type: 3}
+    size: 100
+  - tag: Health_FX
+    prefab: {fileID: 152564, guid: 0e4a7fa9fd28f154b91c98ee6fe8ebea, type: 3}
+    size: 100
+  - tag: Damage_FX
+    prefab: {fileID: 169216, guid: 737959db973360b43bdeb1a4874f1af8, type: 3}
+    size: 100
+  - tag: HateSphereCluster
+    prefab: {fileID: 7986124016139299608, guid: ea484829816c6b849b18ec4b4ae6ee05,
+      type: 3}
+    size: 20
+  - tag: PlayerHateSphere
+    prefab: {fileID: 2537353732476346265, guid: c9ebecba1b075cd4a9210dce38a0426b,
+      type: 3}
+    size: 100
