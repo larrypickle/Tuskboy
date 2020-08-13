@@ -4214,7 +4214,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5377154487abf424f829fa8e9acda0a2, type: 3}
   - {fileID: 21300000, guid: 5489303670a652d41818152b7d8c0e73, type: 3}
   - {fileID: 21300000, guid: 8ac66fd1d1bd827449e85d779c0fe889, type: 3}
-  cardArray: []
 --- !u!4 &930879146
 Transform:
   m_ObjectHideFlags: 0
@@ -8145,7 +8144,7 @@ PrefabInstance:
     - target: {fileID: 4326324830438571496, guid: bf5512f2b02e12649822987365eb6d66,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4326324830438571496, guid: bf5512f2b02e12649822987365eb6d66,
         type: 3}

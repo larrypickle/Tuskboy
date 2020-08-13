@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DentedPixel;
 using TMPro;
-using DialogueManager;
+
 
 public class Player_Combat : MonoBehaviour
 {
@@ -133,6 +133,8 @@ public class Player_Combat : MonoBehaviour
     {
         canFire = true;
     }
+
+    
 
    
 
