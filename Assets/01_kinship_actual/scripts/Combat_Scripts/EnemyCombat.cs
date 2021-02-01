@@ -11,7 +11,7 @@ public class EnemyCombat : MonoBehaviour
     public bool canFire;
 
     public GameObject Tuskboy; //just for starting dialogue
-    public EnemyMoveset enemyMoveset;
+    //public EnemyMoveset enemyMoveset;
     //maybe have an enemymanager script that handles this stuff later
     //enemy stats
     public int enemyMaxHealth = 20;
@@ -54,21 +54,21 @@ public class EnemyCombat : MonoBehaviour
             
             if (randomNumber < empNumber && !Loving)
             {
-                EnemyProjectile = enemyMoveset.cardAttacks[0];
+                EnemyProjectile = "EnemyHateSphere";
                 ShootHateSphere();
                 //EnemyTakeDamage(1);
             }
 
             else if(randomNumber == empNumber && !Loving)
             {
-                EnemyProjectile = enemyMoveset.cardAttacks[2];
+                EnemyProjectile = "HateSphereCluster";
                 ShootHateSphere();
             }
 
             else if (randomNumber > empNumber || Loving)
             {
                 //Debug.Log("empathy sphere");
-                EnemyProjectile = enemyMoveset.cardAttacks[1];
+                EnemyProjectile = "EnemyEmpathySphere";
                 ShootEmpathySphere();
 
             }
